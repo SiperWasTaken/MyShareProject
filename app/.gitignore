@@ -1,0 +1,4 @@
+/build
+
+# Firebase configuration (contains sensitive API keys)
+google-services.json
