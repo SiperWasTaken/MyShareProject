@@ -12,6 +12,7 @@ import com.example.shareproject.ui.home.HomeActivity
 import com.example.shareproject.ui.login.Login
 import com.google.firebase.auth.FirebaseAuth
 
+// Activity di caricamento e controllo autenticazione
 class Caricamento : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth

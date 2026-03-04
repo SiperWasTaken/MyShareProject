@@ -12,6 +12,7 @@ import com.example.shareproject.R
 import com.example.shareproject.ui.login.Login
 import com.google.firebase.auth.FirebaseAuth
 
+// Fragment per le impostazioni e logout
 class SettingsFragment : Fragment() {
 
     override fun onCreateView(

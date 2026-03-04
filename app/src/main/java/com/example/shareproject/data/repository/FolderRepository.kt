@@ -4,16 +4,19 @@ import com.example.shareproject.data.model.Folder
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 
+// Repository per gestire le operazioni sulle cartelle in Firestore
 class FolderRepository {
 
     private val db = FirebaseFirestore.getInstance()
 
+    // Crea una nuova cartella nel database
     suspend fun createFolder(folder: Folder) {
         val docRef = db.collection("folders").document()
         val newFolder = folder.copy(id = docRef.id)
         docRef.set(newFolder).await()
     }
 
+    // Carica le cartelle per un utente e una cartella padre
     suspend fun getFolders(userId: String, parentId: String?): List<Folder> {
         return db.collection("folders")
             .whereEqualTo("userId", userId)
@@ -23,6 +26,7 @@ class FolderRepository {
             .toObjects(Folder::class.java)
     }
 
+    // Elimina le cartelle e tutte le sottocartelle
     suspend fun deleteFolders(folderIds: List<String>) {
         val allIdsToDelete = mutableSetOf<String>()
 

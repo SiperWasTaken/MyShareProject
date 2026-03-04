@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.shareproject.R
 import com.example.shareproject.data.model.Folder
 
+// Adapter per visualizzare cartelle e file in RecyclerView
 class FolderAdapter(
     private val folders: List<Folder>,
     private val onClick: (Folder) -> Unit,
@@ -18,6 +19,7 @@ class FolderAdapter(
     val selectedFolderIds = mutableSetOf<String>()
     var isSelectionMode = false
 
+    // ViewHolder per gli elementi della lista
     inner class FolderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txtName: TextView = itemView.findViewById(R.id.txtFolderName)
         val chkSelect: CheckBox = itemView.findViewById(R.id.chkSelect)

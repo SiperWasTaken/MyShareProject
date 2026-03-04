@@ -23,6 +23,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
+// Activity per il login con email o Google
 class Login : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
@@ -52,6 +53,7 @@ class Login : AppCompatActivity() {
 
     }
 
+    // Verifica le credenziali e fa il login
     fun checkLogin(view: View){
 
         val email = findViewById<EditText>(R.id.editTextTextEmail).text.toString()
@@ -95,6 +97,7 @@ class Login : AppCompatActivity() {
     }
 
 
+    // Gestisce il login con Google
     private suspend fun signInWithGoogle() {
 
         val serverClientId = getString(R.string.default_web_client_id)
@@ -133,6 +136,7 @@ class Login : AppCompatActivity() {
         }
     }
 
+    // Autentica l'utente su Firebase con Google
     private suspend fun firebaseAuthWithGoogle(idToken: String) {
 
         val firebaseCredential = GoogleAuthProvider.getCredential(idToken, null)

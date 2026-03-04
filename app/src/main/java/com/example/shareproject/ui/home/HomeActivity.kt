@@ -10,6 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.shareproject.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+// Activity principale con bottom navigation
 class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

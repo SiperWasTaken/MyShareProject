@@ -8,6 +8,7 @@ import com.example.shareproject.data.model.Folder
 import com.example.shareproject.data.repository.FolderRepository
 import kotlinx.coroutines.launch
 
+// ViewModel per gestire lo stato delle cartelle
 class HomeViewModel : ViewModel() {
 
     private val repository = FolderRepository()
@@ -15,6 +16,7 @@ class HomeViewModel : ViewModel() {
     private val _folders = MutableLiveData<List<Folder>>()
     val folders: LiveData<List<Folder>> = _folders
 
+    // Crea una nuova cartella
     fun createFolder(name: String, userId: String, parentId: String?, ocrText: String = "") {
         viewModelScope.launch {
             val folder = Folder(
@@ -28,6 +30,7 @@ class HomeViewModel : ViewModel() {
         }
     }
 
+    // Carica le cartelle dal repository
     fun loadFolders(userId: String, parentId: String?) {
         viewModelScope.launch {
             val list = repository.getFolders(userId, parentId)
@@ -35,6 +38,7 @@ class HomeViewModel : ViewModel() {
         }
     }
 
+    // Crea un file con testo OCR
     fun createFile(name: String, userId: String, parentId: String?, ocrText: String) {
         viewModelScope.launch {
             val fileItem = Folder(

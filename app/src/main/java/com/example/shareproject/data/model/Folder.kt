@@ -1,5 +1,6 @@
 package com.example.shareproject.data.model
 
+// Classe che rappresenta una cartella o file nel sistema
 data class Folder(
     val id: String = "",
     val name: String = "",

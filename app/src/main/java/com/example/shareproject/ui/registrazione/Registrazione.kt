@@ -13,6 +13,7 @@ import com.example.shareproject.R
 import com.example.shareproject.ui.login.Login
 import com.google.firebase.auth.FirebaseAuth
 
+// Activity per la registrazione di nuovi utenti
 class Registrazione : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
@@ -33,6 +34,7 @@ class Registrazione : AppCompatActivity() {
 
 
 
+    // Registra un nuovo utente con email e password
     fun registraUtente(view: View){
 
         val email = findViewById<EditText>(R.id.editTextTextEmail).text.toString()

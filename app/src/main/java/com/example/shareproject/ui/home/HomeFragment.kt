@@ -27,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 import java.io.File
 
+// Fragment principale per la gestione di cartelle e file
 class HomeFragment : Fragment() {
 
     private lateinit var photoUri: Uri
@@ -41,8 +42,7 @@ class HomeFragment : Fragment() {
     private lateinit var folderAdapter: FolderAdapter
     private val foldersList = mutableListOf<Folder>()
 
-
-
+    // Launcher per richiedere i permessi della camera
     private val requestCameraPermission =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
             if (granted) {
@@ -211,6 +211,7 @@ class HomeFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, onBackPressedCallback)
     }
 
+    // Crea un URI temporaneo per la foto
     private fun createImageUri(): Uri {
         val file = File(
             requireContext().cacheDir,
@@ -249,6 +250,7 @@ class HomeFragment : Fragment() {
         }
     }
 
+    // Elabora l'immagine con OCR
     private fun elaboraImmagineConMLKit(uri: Uri) {
 
         Log.d("OCR", "Inizio scansione dell'immagine...")
@@ -288,6 +290,7 @@ class HomeFragment : Fragment() {
     }
 
 
+    // Mostra il dialogo con l'anteprima del testo estratto
     private fun showOcrPreviewDialog(extractedText: String) {
         val context = requireContext()
 

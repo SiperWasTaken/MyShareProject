@@ -6,10 +6,12 @@ import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 
+// Helper per estrarre testo dalle immagini tramite OCR
 object OcrHelper {
 
     private val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
+    // Estrae il testo da un'immagine
     fun extractTextFromUri(
         context: Context,
         imageUri: Uri,
